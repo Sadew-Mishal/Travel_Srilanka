@@ -3,141 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Sri Lanka Tour Planner</title>
+    <title>Sri Lanka Tour Planner - Professional Booking</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #27ae60;
-            --secondary: #2c3e50;
-            --accent: #e67e22;
-            --gold: #f1c40f;
-            --bg: #f8f9fa;
-        }
-
+        :root { --primary: #27ae60; --secondary: #2c3e50; --accent: #e67e22; --gold: #f1c40f; --bg: #f8f9fa; }
         body { font-family: 'Poppins', sans-serif; background-color: var(--bg); color: var(--secondary); margin: 0; padding: 0; }
-
-        header {
-background-color: black;
-           
-            height: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center;
-        }
-
+        header { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1552423126-444a7139f37c?q=80&w=1500') no-repeat center center/cover; height: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; }
         .container { max-width: 900px; margin: -50px auto 50px auto; background: white; padding: 35px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
-
         h2 { border-left: 5px solid var(--primary); padding-left: 15px; margin: 30px 0 20px 0; font-size: 1.3rem; text-transform: uppercase; }
-
+        
         /* Cities Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
-        .item { 
-            cursor: pointer; border-radius: 12px; overflow: hidden; border: 3px solid #eee; 
-            transition: 0.3s; background: #fff; text-align: center;
-        }
+        .item { cursor: pointer; border-radius: 12px; overflow: hidden; border: 3px solid #eee; transition: 0.3s; background: #fff; text-align: center; position: relative; }
         .item img { width: 100%; height: 110px; object-fit: cover; }
         .item p { margin: 8px; font-weight: 600; font-size: 0.85rem; }
         .item.selected { border-color: var(--primary); background: #f0fff4; transform: scale(1.03); }
+        .item.selected::after { content: '✓'; position: absolute; top: 5px; right: 5px; background: var(--primary); color: white; width: 20px; height: 20px; border-radius: 50%; font-size: 12px; display: flex; align-items: center; justify-content: center; }
 
         /* Vehicle Selection */
         .vehicle-select { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 15px; }
-        .v-card { 
-            flex: 1; min-width: 150px; padding: 20px; border: 2px solid #eee; border-radius: 15px; 
-            text-align: center; cursor: pointer; transition: 0.3s; 
-        }
+        .v-card { flex: 1; min-width: 150px; padding: 20px; border: 2px solid #eee; border-radius: 15px; text-align: center; cursor: pointer; transition: 0.3s; }
         .v-card h3 { margin: 0; font-size: 2rem; }
-        .v-card.selected { border-color: var(--primary); background: #f0fff4; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .v-card.selected { border-color: var(--primary); background: #f0fff4; }
 
-        /* Guide Addon */
-        .addon-box { 
-            background: #fff9e6; border: 2px dashed var(--gold); padding: 18px; border-radius: 15px; 
-            display: flex; align-items: center; justify-content: space-between; margin-top: 25px;
-        }
+        /* Days Selection Box */
+        .days-box { background: #eef7ff; border: 2px solid #3498db; padding: 20px; border-radius: 15px; margin-top: 25px; display: flex; align-items: center; justify-content: space-between; }
+        .days-box input { width: 80px; padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 1.1rem; text-align: center; }
 
-        /* Final Total Box */
-        .total-box { 
-            margin-top: 30px; padding: 25px; border-radius: 15px; background: var(--secondary); 
-            color: white; display: none; animation: fadeIn 0.5s;
-        }
+        .addon-box { background: #fff9e6; border: 2px dashed var(--gold); padding: 18px; border-radius: 15px; display: flex; align-items: center; justify-content: space-between; margin-top: 20px; }
+
+        /* Total Box */
+        .total-box { margin-top: 30px; padding: 25px; border-radius: 15px; background: var(--secondary); color: white; display: none; }
         .price-line { display: flex; justify-content: space-between; margin: 8px 0; font-size: 1rem; }
         .bonus-text { color: var(--gold); font-weight: bold; }
         .grand-total { font-size: 1.8rem; font-weight: 700; color: #2ecc71; border-top: 1px solid #444; padding-top: 10px; margin-top: 10px; }
 
-        /* Buttons */
-        .btn { 
-            width: 100%; padding: 16px; border: none; border-radius: 12px; font-size: 1.1rem; 
-            font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 20px; text-transform: uppercase;
-        }
-        .btn-calc { background: var(--accent); color: white; }
-        .btn-checkout { background: var(--primary); color: white; display: none; box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3); }
-        .btn:hover { filter: brightness(1.1); transform: translateY(-2px); }
+        /* Bank Modal Styling */
+        .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; overflow-y:auto; }
+        .modal-content { max-width:500px; margin:40px auto; background:white; padding:30px; border-radius:20px; position:relative; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        footer { text-align: center; padding: 40px; color: #888; font-size: 0.85rem; }
+        .btn { width: 100%; padding: 16px; border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 20px; text-transform: uppercase; }
+        .btn-calc { background: var(--accent); color: white; }
+        .btn-checkout { background: var(--primary); color: white; display: none; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>SRI LANKA TOUR PLANNER</h1>
-    <p>Premium Destinations • Certified Guides • Easy Checkout</p>
+    <p>Select Cities & Book Your Ride Online</p>
 </header>
 
 <div class="container">
     
-    <h2>1. Select Cities</h2>
+    <h2>1. Where do you want to go?</h2>
+    <p style="font-size: 0.8rem; color: #777;">(Select all the cities you plan to visit)</p>
     <div class="grid">
-        <div class="item" onclick="selectCity('Colombo', 1500, this)"><img src="download (8).jpg"><p>Colombo</p></div>
-        <div class="item" onclick="selectCity('Kandy', 2000, this)"><img src="download (6).jpg"><p>Kandy</p></div>
-        <div class="item" onclick="selectCity('Nuwara Eliya', 2500, this)"><img src="download (2).jpg"><p>Nuwara Eliya</p></div>
-        <div class="item" onclick="selectCity('Galle', 2200, this)"><img src="download (1).jpg"><p>Galle</p></div>
-        <div class="item" onclick="selectCity('Mathra', 2800, this)"><img src="download (4).jpg"><p>Mathra</p></div>
-        <div class="item" onclick="selectCity('Badulla', 2400, this)"><img src="download (3).jpg"><p>Badulla</p></div>
-         <div class="item" onclick="selectCity('Ampara', 2400, this)"><img src="download (5).jpg"><p>Ampara</p></div>
-         <div class="item" onclick="selectCity('Jaffna', 2400, this)"><img src="download (7).jpg"><p>Jaffna</p></div>
-         <div class="item" onclick="selectCity('Mthale', 2400, this)"><img src="download (10).jpg"><p>Mthale</p></div>
-         <div class="item" onclick="selectCity('Anuradapura', 2400, this)"><img src="download (9).jpg"><p>Anuradapura</p></div>
-         
-         
-
+        <div class="item" onclick="toggleCity('Colombo', this)"><img src="download (8).jpg"><p>Colombo</p></div>
+        <div class="item" onclick="toggleCity('Kandy', this)"><img src="download (6).jpg"><p>Kandy</p></div>
+        <div class="item" onclick="toggleCity('Nuwara Eliya', this)"><img src="download (2).jpg"><p>Nuwara Eliya</p></div>
+        <div class="item" onclick="toggleCity('Galle', this)"><img src="download (1).jpg"><p>Galle</p></div>
+        <div class="item" onclick="toggleCity('Badulla', this)"><img src="download (3).jpg"><p>Badulla</p></div>
+        <div class="item" onclick="toggleCity('Ampara', this)"><img src="download (5).jpg"><p>Ampara</p></div>
+        <div class="item" onclick="toggleCity('Jaffna', this)"><img src="download (7).jpg"><p>Jaffna</p></div>
+        <div class="item" onclick="toggleCity('Mthale', this)"><img src="download (4).jpg"><p>Mthale</p></div>
+        <div class="item" onclick="toggleCity('Anuradapura', this)"><img src="download (9).jpg"><p>Anuradapura</p></div>
+        <div class="item" onclick="toggleCity('mathara', this)"><img src="download (4).jpg"><p>mathara</p></div>
     </div>
 
-    <h2>2. Choose Your Vehicle</h2>
+    <h2>2. Choose Vehicle & Days</h2>
     <div class="vehicle-select">
-        <div class="v-card" id="v-bike" onclick="selectVehicle('Motorbike', 2500, 'v-bike')"><h3>🏍️</h3><p>Motorbike<br>Rs. 2500</p></div>
-        <div class="v-card" id="v-car" onclick="selectVehicle('Car', 6000, 'v-car')"><h3>🚗</h3><p>Car <br>Rs. 6000</p></div>
-        <div class="v-card" id="v-van" onclick="selectVehicle('Van', 12000, 'v-van')"><h3>🚐</h3><p>Luxury Van<br>Rs. 12000</p></div>
+        <div class="v-card" id="v-bike" onclick="selectVehicle('Motorbike', 2500, 'v-bike')"><h3>🏍️</h3><p>Motorbike<br>Rs. 2500/day</p></div>
+        <div class="v-card" id="v-car" onclick="selectVehicle('Car', 6000, 'v-car')"><h3>🚗</h3><p>Car <br>Rs. 6000/day</p></div>
+        <div class="v-card" id="v-van" onclick="selectVehicle('Van', 12000, 'v-van')"><h3>🚐</h3><p>Luxury Van<br>Rs. 12000/day</p></div>
+    </div>
+
+    <div class="days-box">
+        <div><strong>Total Days:</strong></div>
+        <input type="number" id="tour-days" value="1" min="1" onchange="resetView()">
     </div>
 
     <div class="addon-box">
-        <span><strong>Add a Tour Guide?</strong> (+ Rs. 3500)</span>
-        <input type="checkbox" id="guide-check" onchange="resetView()" style="width:24px; height:24px; cursor:pointer;">
+        <span><strong>Add a Tour Guide?</strong> (+ Rs. 3500/day)</span>
+        <input type="checkbox" id="guide-check" onchange="resetView()" style="width:24px; height:24px;">
     </div>
 
     <button class="btn btn-calc" onclick="calculateTotal()">Calculate Final Price</button>
 
     <div class="total-box" id="total-display">
-        <div class="price-line"><span>Destinations & Transport:</span> <span id="sub-val">0</span></div>
+        <div class="price-line"><span>Selected Cities:</span> <span id="disp-cities">None</span></div>
+        <div class="price-line"><span>Transport (<span id="disp-days">1</span> Days):</span> <span id="v-val">0</span></div>
         <div class="price-line"><span>Guide Service:</span> <span id="guide-val">0</span></div>
-        <div class="price-line bonus-text"><span>5% Bonus Applied:</span> <span id="bonus-val">0</span></div>
-        <div class="grand-total">Total: Rs. <span id="grand-val">0</span></div>
+        <div class="price-line bonus-text"><span>Special 5% Bonus Applied:</span> <span id="bonus-val">0</span></div>
+        <div class="grand-total">Total Amount: Rs. <span id="grand-val">0</span></div>
     </div>
 
-    <button class="btn btn-checkout" id="checkout-btn" onclick="goToCheckout()">Checkout Now</button>
+    <button class="btn btn-checkout" id="checkout-btn" onclick="showBankModal()">Checkout Now</button>
 
 </div>
 
-<footer>&copy; 2026 Sri Lanka Premium Travels - Secure Payment Processing</footer>
+<div id="bank-modal" class="modal">
+    <div class="modal-content">
+        <span onclick="closeModal()" style="position:absolute; right:20px; top:15px; cursor:pointer; font-size:24px;">&times;</span>
+        <h2 style="text-align:center;">Bank Transfer</h2>
+        <div style="background:#f8f9fa; padding:15px; border-radius:10px; margin:15px 0; border:1px solid #ddd;">
+            <p><strong>Bank:</strong> Bank of Ceylon (BOC)</p>
+            <p><strong>Account Name:</strong> Sri Lanka Travels (PVT) LTD</p>
+            <p><strong>Account Number:</strong> 123456789</p>
+            <p><strong>Branch:</strong> Kandy Main</p>
+            <p style="text-align:center; font-size:1.2rem; color:var(--primary); font-weight:700;">Payable: Rs. <span id="modal-amount">0</span></p>
+        </div>
+        
+        <form action="upload.php" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="amount" id="form-amount">
+            <input type="text" placeholder="Your Name" required style="width:95%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc;">
+            <input type="text" placeholder="WhatsApp Number" required style="width:95%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc;">
+            <label style="display:block; margin-bottom:5px; font-weight:600;">Upload Payment Receipt:</label>
+            <input type="file" name="receipt" accept="image/*" required style="margin-bottom:15px;">
+            <button type="submit" class="btn" style="background:var(--primary); color:white; margin:0;">Confirm Booking</button>
+        </form>
+    </div>
+</div>
 
 <script>
     let selectedCities = [];
-    let cityCost = 0;
     let vehicle = { name: "", price: 0 };
 
-    function selectCity(name, price, el) {
-        const index = selectedCities.findIndex(c => c.name === name);
+    function toggleCity(name, el) {
+        const index = selectedCities.indexOf(name);
         if (index > -1) {
-            selectedCities.splice(index, 1); cityCost -= price;
+            selectedCities.splice(index, 1);
             el.classList.remove('selected');
         } else {
-            selectedCities.push({name, price}); cityCost += price;
+            selectedCities.push(name);
             el.classList.add('selected');
         }
         resetView();
@@ -156,32 +154,37 @@ background-color: black;
     }
 
     function calculateTotal() {
-        if (selectedCities.length === 0 || vehicle.price === 0) {
-            alert("Please select at least one city and a vehicle first!");
+        const days = parseInt(document.getElementById('tour-days').value);
+        if (selectedCities.length === 0 || vehicle.price === 0 || days < 1) {
+            alert("Please select at least one city, a vehicle and valid days!");
             return;
         }
 
-        const guidePrice = document.getElementById('guide-check').checked ? 3500 : 0;
-        const subtotal = cityCost + vehicle.price + guidePrice;
+        const guideRate = document.getElementById('guide-check').checked ? 3500 : 0;
+        const subtotal = (vehicle.price * days) + (guideRate * days);
         const bonus = subtotal * 0.05;
-        const grandTotal = subtotal - bonus;
+        const finalPrice = subtotal - bonus;
 
-        document.getElementById('sub-val').innerText = (cityCost + vehicle.price);
-        document.getElementById('guide-val').innerText = guidePrice;
+        document.getElementById('disp-cities').innerText = selectedCities.join(', ');
+        document.getElementById('v-val').innerText = (vehicle.price * days);
+        document.getElementById('guide-val').innerText = (guideRate * days);
+        document.getElementById('disp-days').innerText = days;
         document.getElementById('bonus-val').innerText = "-" + bonus.toFixed(0);
-        document.getElementById('grand-val').innerText = grandTotal.toFixed(0);
+        document.getElementById('grand-val').innerText = finalPrice.toFixed(0);
 
         document.getElementById('total-display').style.display = 'block';
         document.getElementById('checkout-btn').style.display = 'block';
-        
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
 
-    function goToCheckout() {
-        const amount = document.getElementById('grand-val').innerText;
-        alert("Proceeding to Secure Checkout for Rs. " + amount);
-        // මෙතනට ඔබේ Payment Link එක දාන්න:
-        // window.location.href = "https://your-payment-page.com";
+    function showBankModal() {
+        const amt = document.getElementById('grand-val').innerText;
+        document.getElementById('modal-amount').innerText = amt;
+        document.getElementById('form-amount').value = amt;
+        document.getElementById('bank-modal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('bank-modal').style.display = 'none';
     }
 </script>
 
