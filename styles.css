@@ -48,6 +48,12 @@ nav {
     padding: 1rem 2rem;
 }
 
+#logo1 {
+    width: auto;       
+    height: 50px;
+    
+}
+
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
