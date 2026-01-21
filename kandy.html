@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kandy Travel Packages | Explore Sri Lanka's Cultural Capital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+      
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://unsplash.com/photos/a-large-white-building-with-a-red-roof-rdrGpquZ1Hc');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        /* About Section */
+        .about-kandy {
+            padding: 80px 5%;
+            background: #f8f9fa;
+        }
+
+        .about-kandy .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-kandy img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .about-kandy h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .about-kandy p {
+            margin-bottom: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .highlight-item i {
+            color: #667eea;
+            font-size: 1.5rem;
+        }
+
+        /* Packages Section */
+        .packages {
+            padding: 80px 5%;
+            background: white;
+        }
+
+        .packages h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .packages .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .packages-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #f0f0f0;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .package-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .package-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .package-header .duration {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .package-price {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .package-body {
+            padding: 30px 20px;
+        }
+
+        .package-body h4 {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 1.2rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .package-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+
+        .package-features li i {
+            color: #27ae60;
+            font-size: 1.1rem;
+        }
+
+        .book-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: transform 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .book-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Booking Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-size: 1.5rem;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.02);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 5%;
+            background: #f8f9fa;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+        }
+
+        footer .social-icons {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        footer .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        footer .social-icons a:hover {
+            color: #667eea;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            text-align: center;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        .success-message i {
+            font-size: 4rem;
+            color: #27ae60;
+            margin-bottom: 20px;
+        }
+
+        .success-message h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .success-message p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-kandy .container {
+                grid-template-columns: 1fr;
+            }
+
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+
+            nav .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Explore Kandy</h1>
+            <p>Sri Lanka's Sacred Cultural Capital</p>
+            <a href="#packages" class="hero-btn">View Packages</a>
+        </div>
+    </section>
+
+    <!-- About Kandy -->
+    <section id="about" class="about-kandy">
+        <div class="container">
+            <div>
+                <img src="Kandy.jpeg" alt="Kandy Lake">
+            </div>
+            <div>
+                <h2>Welcome to Kandy</h2>
+                <p>Kandy, the last royal capital of Sri Lanka, is a UNESCO World Heritage Site nestled in the hills of the Central Province. This sacred city is home to the Temple of the Sacred Tooth Relic, one of Buddhism's most revered sites.</p>
+                <p>Surrounded by mountains and centered around the beautiful Kandy Lake, this cultural gem offers a perfect blend of history, spirituality, and natural beauty. Experience traditional dance, explore lush botanical gardens, and immerse yourself in the rich heritage of Sri Lankan culture.</p>
+                
+                <div class="highlights">
+                    <div class="highlight-item">
+                        <i class="fas fa-gopuram"></i>
+                        <span>Temple of the Tooth</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-water"></i>
+                        <span>Kandy Lake</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-leaf"></i>
+                        <span>Royal Botanical Gardens</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-theater-masks"></i>
+                        <span>Cultural Performances</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages">
+        <h2>Choose Your Package</h2>
+        <p class="subtitle">Explore Kandy at your own pace with our carefully curated tour packages</p>
+        
+        <div class="packages-grid">
+            <!-- 1 Day Package -->
+            <div class="package-card">
+                <div class="package-header">
+                    <h3>Quick Explorer</h3>
+                    <p class="duration">1 Day Tour</p>
+                </div>
+                <div class="package-price">
+                    <div class="price">LKR 8,500<span>/person</span></div>
+                </div>
+                <div class="package-body">
+                    <h4>Package Includes:</h4>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Temple of the Tooth visit</li>
+                        <li><i class="fas fa-check"></i> Kandy Lake walk</li>
+                        <li><i class="fas fa-check"></i> City viewpoint tour</li>
+                        <li><i class="fas fa-check"></i> Lunch included</li>
+                        <li><i class="fas fa-check"></i> Transport & guide</li>
+                    </ul>
+                    <button class="book-btn" onclick="openBooking('Quick Explorer', '1 Day', 8500)">Book Now</button>
+                </div>
+            </div>
+
+            <!-- 2 Days Package -->
+            <div class="package-card">
+                <div class="package-header">
+                    <h3>Cultural Immersion</h3>
+                    <p class="duration">2 Days / 1 Night</p>
+                </div>
+                <div class="package-price">
+                    <div class="price">LKR 18,000<span>/person</span></div>
+                </div>
+                <div class="package-body">
+                    <h4>Package Includes:</h4>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> All Day 1 activities</li>
+                        <li><i class="fas fa-check"></i> Traditional dance show</li>
+                        <li><i class="fas fa-check"></i> Peradeniya Gardens visit</li>
+                        <li><i class="fas fa-check"></i> 3-star hotel stay</li>
+                        <li><i class="fas fa-check"></i> All meals included</li>
+                        <li><i class="fas fa-check"></i> Transport & guide</li>
+                    </ul>
+                    <button class="book-btn" onclick="openBooking('Cultural Immersion', '2 Days / 1 Night', 18000)">Book Now</button>
+                </div>
+            </div>
+
+            <!-- 3 Days Package -->
+            <div class="package-card">
+                <div class="package-header">
+                    <h3>Heritage Explorer</h3>
+                    <p class="duration">3 Days / 2 Nights</p>
+                </div>
+                <div class="package-price">
+                    <div class="price">LKR 28,500<span>/person</span></div>
+                </div>
+                <div class="package-body">
+                    <h4>Package Includes:</h4>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> All Day 1 & 2 activities</li>
+                        <li><i class="fas fa-check"></i> Tea plantation tour</li>
+                        <li><i class="fas fa-check"></i> Spice garden visit</li>
+                        <li><i class="fas fa-check"></i> Gem museum tour</li>
+                        <li><i class="fas fa-check"></i> 4-star hotel stay</li>
+                        <li><i class="fas fa-check"></i> All meals & snacks</li>
+                        <li><i class="fas fa-check"></i> Premium transport & guide</li>
+                    </ul>
+                    <button class="book-btn" onclick="openBooking('Heritage Explorer', '3 Days / 2 Nights', 28500)">Book Now</button>
+                </div>
+            </div>
+
+            <!-- 5 Days Package -->
+            <div class="package-card">
+                <div class="package-header">
+                    <h3>Complete Experience</h3>
+                    <p class="duration">5 Days / 4 Nights</p>
+                </div>
+                <div class="package-price">
+                    <div class="price">LKR 45,000<span>/person</span></div>
+                </div>
+                <div class="package-body">
+                    <h4>Package Includes:</h4>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> All previous activities</li>
+                        <li><i class="fas fa-check"></i> Pinnawala Elephant Orphanage</li>
+                        <li><i class="fas fa-check"></i> Sigiriya Rock Fortress</li>
+                        <li><i class="fas fa-check"></i> Dambulla Cave Temple</li>
+                        <li><i class="fas fa-check"></i> Village tour experience</li>
+                        <li><i class="fas fa-check"></i> 5-star hotel stay</li>
+                        <li><i class="fas fa-check"></i> All meals & beverages</li>
+                        <li><i class="fas fa-check"></i> Luxury transport & expert guide</li>
+                    </ul>
+                    <button class="book-btn" onclick="openBooking('Complete Experience', '5 Days / 4 Nights', 45000)">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="gallery">
+        <h2>Experience Kandy</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=600&q=80" alt="Kandy Lake">
+                <div class="gallery-overlay">
+                    <h3>Kandy Lake</h3>
+                    <p>Peaceful walks around the scenic lake</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" alt="Temple">
+                <div class="gallery-overlay">
+                    <h3>Sacred Temples</h3>
+                    <p>Visit the Temple of the Tooth Relic</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=600&q=80" alt="Tea Gardens">
+                <div class="gallery-overlay">
+                    <h3>Tea Plantations</h3>
+                    <p>Explore lush green tea estates</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=600&q=80" alt="Cultural Dance">
+                <div class="gallery-overlay">
+                    <h3>Cultural Shows</h3>
+                    <p>Traditional Kandyan dance performances</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1586902197503-e71026292412?auto=format&fit=crop&w=600&q=80" alt="Botanical Garden">
+                <div class="gallery-overlay">
+                    <h3>Royal Gardens</h3>
+                    <p>Peradeniya Botanical Gardens</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=600&q=80" alt="Mountain View">
+                <div class="gallery-overlay">
+                    <h3>Mountain Views</h3>
+                    <p>Breathtaking hill country scenery</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Book Your Package</h3>
+                <button class="close-btn" onclick="closeBooking()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label>Selected Package</label>
+                        <input type="text" id="packageName" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Duration</label>
+                        <input type="text" id="packageDuration" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Price per Person</label>
+                        <input type="text" id="packagePrice" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" id="fullName" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" id="email" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" id="phone" required placeholder="+94 XX XXX XXXX">
+                    </div>
+                    <div class="form-group">
+                        <label>Number of People *</label>
+                        <input type="number" id="numPeople" min="1" value="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Preferred Date *</label>
+                        <input type="date" id="travelDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Special Requirements</label>
+                        <textarea id="specialReq" rows="3" placeholder="Any special requests or dietary requirements..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <i class="fas fa-check-circle"></i>
+        <h3>Booking Confirmed!</h3>
+        <p>Thank you for choosing Kandy Tours. We'll contact you shortly to confirm your booking details.</p>
+        <button class="book-btn" onclick="closeSuccess()">Close</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>&copy; 2024 Kandy Tours. All rights reserved.</p>
+        <p>Explore Sri Lanka's Cultural Heart</p>
+    </footer>
+
+    <script>
+        // Set minimum date to today
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('travelDate').setAttribute('min', today);
+        });
+
+        // Open booking modal
+        function openBooking(packageName, duration, price) {
+            document.getElementById('packageName').value = packageName;
+            document.getElementById('packageDuration').value = duration;
+            document.getElementById('packagePrice').value = 'LKR ' + price.toLocaleString();
+            document.getElementById('bookingModal').classList.add('active');
+        }
+
+        // Close booking modal
+        function closeBooking() {
+            document.getElementById('bookingModal').classList.remove('active');
+            document.getElementById('bookingForm').reset();
+        }
+
+        // Handle form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Hide modal
+            closeBooking();
+            
+            // Show success message
+            document.getElementById('successMessage').classList.add('active');
+            
+            // You can add actual booking logic here (send to server, etc.)
+            console.log('Booking details:', {
+                package: document.getElementById('packageName').value,
+                duration: document.getElementById('packageDuration').value,
+                name: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                people: document.getElementById('numPeople').value,
+                date: document.getElementById('travelDate').value,
+                requirements: document.getElementById('
