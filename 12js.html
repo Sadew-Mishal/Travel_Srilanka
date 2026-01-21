@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Sri Lanka Tour Planner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #27ae60;
+            --secondary: #2c3e50;
+            --accent: #e67e22;
+            --gold: #f1c40f;
+            --bg: #f8f9fa;
+        }
+
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg); color: var(--secondary); margin: 0; padding: 0; }
+
+        header {
+background-color: black;
+           
+            height: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center;
+        }
+
+        .container { max-width: 900px; margin: -50px auto 50px auto; background: white; padding: 35px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+
+        h2 { border-left: 5px solid var(--primary); padding-left: 15px; margin: 30px 0 20px 0; font-size: 1.3rem; text-transform: uppercase; }
+
+        /* Cities Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
+        .item { 
+            cursor: pointer; border-radius: 12px; overflow: hidden; border: 3px solid #eee; 
+            transition: 0.3s; background: #fff; text-align: center;
+        }
+        .item img { width: 100%; height: 110px; object-fit: cover; }
+        .item p { margin: 8px; font-weight: 600; font-size: 0.85rem; }
+        .item.selected { border-color: var(--primary); background: #f0fff4; transform: scale(1.03); }
+
+        /* Vehicle Selection */
+        .vehicle-select { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 15px; }
+        .v-card { 
+            flex: 1; min-width: 150px; padding: 20px; border: 2px solid #eee; border-radius: 15px; 
+            text-align: center; cursor: pointer; transition: 0.3s; 
+        }
+        .v-card h3 { margin: 0; font-size: 2rem; }
+        .v-card.selected { border-color: var(--primary); background: #f0fff4; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+        /* Guide Addon */
+        .addon-box { 
+            background: #fff9e6; border: 2px dashed var(--gold); padding: 18px; border-radius: 15px; 
+            display: flex; align-items: center; justify-content: space-between; margin-top: 25px;
+        }
+
+        /* Final Total Box */
+        .total-box { 
+            margin-top: 30px; padding: 25px; border-radius: 15px; background: var(--secondary); 
+            color: white; display: none; animation: fadeIn 0.5s;
+        }
+        .price-line { display: flex; justify-content: space-between; margin: 8px 0; font-size: 1rem; }
+        .bonus-text { color: var(--gold); font-weight: bold; }
+        .grand-total { font-size: 1.8rem; font-weight: 700; color: #2ecc71; border-top: 1px solid #444; padding-top: 10px; margin-top: 10px; }
+
+        /* Buttons */
+        .btn { 
+            width: 100%; padding: 16px; border: none; border-radius: 12px; font-size: 1.1rem; 
+            font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 20px; text-transform: uppercase;
+        }
+        .btn-calc { background: var(--accent); color: white; }
+        .btn-checkout { background: var(--primary); color: white; display: none; box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3); }
+        .btn:hover { filter: brightness(1.1); transform: translateY(-2px); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        footer { text-align: center; padding: 40px; color: #888; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>SRI LANKA TOUR PLANNER</h1>
+    <p>Premium Destinations • Certified Guides • Easy Checkout</p>
+</header>
+
+<div class="container">
+    
+    <h2>1. Select Cities</h2>
+    <div class="grid">
+        <div class="item" onclick="selectCity('Colombo', 1500, this)"><img src="download (8).jpg"><p>Colombo</p></div>
+        <div class="item" onclick="selectCity('Kandy', 2000, this)"><img src="download (6).jpg"><p>Kandy</p></div>
+        <div class="item" onclick="selectCity('Nuwara Eliya', 2500, this)"><img src="download (2).jpg"><p>Nuwara Eliya</p></div>
+        <div class="item" onclick="selectCity('Galle', 2200, this)"><img src="download (1).jpg"><p>Galle</p></div>
+        <div class="item" onclick="selectCity('Mathra', 2800, this)"><img src="download (4).jpg"><p>Mathra</p></div>
+        <div class="item" onclick="selectCity('Badulla', 2400, this)"><img src="download (3).jpg"><p>Badulla</p></div>
+         <div class="item" onclick="selectCity('Ampara', 2400, this)"><img src="download (5).jpg"><p>Ampara</p></div>
+         <div class="item" onclick="selectCity('Jaffna', 2400, this)"><img src="download (7).jpg"><p>Jaffna</p></div>
+         <div class="item" onclick="selectCity('Mthale', 2400, this)"><img src="download (10).jpg"><p>Mthale</p></div>
+         <div class="item" onclick="selectCity('Anuradapura', 2400, this)"><img src="download (9).jpg"><p>Anuradapura</p></div>
+         
+         
+
+    </div>
+
+    <h2>2. Choose Your Vehicle</h2>
+    <div class="vehicle-select">
+        <div class="v-card" id="v-bike" onclick="selectVehicle('Motorbike', 2500, 'v-bike')"><h3>🏍️</h3><p>Motorbike<br>Rs. 2500</p></div>
+        <div class="v-card" id="v-car" onclick="selectVehicle('Car', 6000, 'v-car')"><h3>🚗</h3><p>Car <br>Rs. 6000</p></div>
+        <div class="v-card" id="v-van" onclick="selectVehicle('Van', 12000, 'v-van')"><h3>🚐</h3><p>Luxury Van<br>Rs. 12000</p></div>
+    </div>
+
+    <div class="addon-box">
+        <span><strong>Add a Tour Guide?</strong> (+ Rs. 3500)</span>
+        <input type="checkbox" id="guide-check" onchange="resetView()" style="width:24px; height:24px; cursor:pointer;">
+    </div>
+
+    <button class="btn btn-calc" onclick="calculateTotal()">Calculate Final Price</button>
+
+    <div class="total-box" id="total-display">
+        <div class="price-line"><span>Destinations & Transport:</span> <span id="sub-val">0</span></div>
+        <div class="price-line"><span>Guide Service:</span> <span id="guide-val">0</span></div>
+        <div class="price-line bonus-text"><span>5% Bonus Applied:</span> <span id="bonus-val">0</span></div>
+        <div class="grand-total">Total: Rs. <span id="grand-val">0</span></div>
+    </div>
+
+    <button class="btn btn-checkout" id="checkout-btn" onclick="goToCheckout()">Checkout Now</button>
+
+</div>
+
+<footer>&copy; 2026 Sri Lanka Premium Travels - Secure Payment Processing</footer>
+
+<script>
+    let selectedCities = [];
+    let cityCost = 0;
+    let vehicle = { name: "", price: 0 };
+
+    function selectCity(name, price, el) {
+        const index = selectedCities.findIndex(c => c.name === name);
+        if (index > -1) {
+            selectedCities.splice(index, 1); cityCost -= price;
+            el.classList.remove('selected');
+        } else {
+            selectedCities.push({name, price}); cityCost += price;
+            el.classList.add('selected');
+        }
+        resetView();
+    }
+
+    function selectVehicle(name, price, id) {
+        document.querySelectorAll('.v-card').forEach(c => c.classList.remove('selected'));
+        document.getElementById(id).classList.add('selected');
+        vehicle = { name, price };
+        resetView();
+    }
+
+    function resetView() {
+        document.getElementById('total-display').style.display = 'none';
+        document.getElementById('checkout-btn').style.display = 'none';
+    }
+
+    function calculateTotal() {
+        if (selectedCities.length === 0 || vehicle.price === 0) {
+            alert("Please select at least one city and a vehicle first!");
+            return;
+        }
+
+        const guidePrice = document.getElementById('guide-check').checked ? 3500 : 0;
+        const subtotal = cityCost + vehicle.price + guidePrice;
+        const bonus = subtotal * 0.05;
+        const grandTotal = subtotal - bonus;
+
+        document.getElementById('sub-val').innerText = (cityCost + vehicle.price);
+        document.getElementById('guide-val').innerText = guidePrice;
+        document.getElementById('bonus-val').innerText = "-" + bonus.toFixed(0);
+        document.getElementById('grand-val').innerText = grandTotal.toFixed(0);
+
+        document.getElementById('total-display').style.display = 'block';
+        document.getElementById('checkout-btn').style.display = 'block';
+        
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    function goToCheckout() {
+        const amount = document.getElementById('grand-val').innerText;
+        alert("Proceeding to Secure Checkout for Rs. " + amount);
+        // මෙතනට ඔබේ Payment Link එක දාන්න:
+        // window.location.href = "https://your-payment-page.com";
+    }
+</script>
+
+</body>
+</html>
