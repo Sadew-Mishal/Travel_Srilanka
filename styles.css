@@ -385,23 +385,11 @@ h2 { text-align: center; margin-bottom: 30px; }
     background: var(--accent-color);
 }
 
-.packagebtn {
-    align-items: center;
-    justify-content: center;
-    color: #1565c0;
-    padding: 15px;
-    width: 500px;
-}
-
-.packagebtndiv {
-    align-items: center;
-}
-
 .package-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
