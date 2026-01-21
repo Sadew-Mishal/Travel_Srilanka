@@ -9,17 +9,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-
-<!--ndfnkdnflkdnf,danf,a,fbdakjjf k--> 
-
-
-
 <body>
     <!-- Header -->
     <header>
         <nav>
-            <img src="logo.png" id="logo1">
-            <a class="logo">Travel Sri Lanka</a>
+            <a href="#home" class="logo">Travel Sri Lanka</a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#destinations">Destinations</a></li>
@@ -50,75 +44,69 @@
             </button>
 
             <div class="carousel-track" id="carouselTrack">
-                <div class="destination-card">
+                <div class="destination-card" data-destination="nuwara">
                     <img src="Nuwaraeliya.jpeg" alt="Nuwara Eliya">
                     <div class="card-content">
                         <h3>Nuwara Eliya</h3>
                         <p>Experience "Little England" with misty mountains, tea plantations, and cool highland air.</p>
                     </div>
                 </div>
-                <div class="destination-card">
+                <div class="destination-card" data-destination="galle">
                     <img src="Galle.webp" alt="Galle">
                     <div class="card-content">
                         <h3>Galle Fort</h3>
                         <p>Historic Dutch fort, ocean breezes, and charming southern charm combined.</p>
                     </div>
                 </div>
-                <div class="destination-card">
+                <div class="destination-card" data-destination="ella">
                     <img src="Ella.jpeg" alt="Ella">
                     <div class="card-content">
                         <h3>Ella</h3>
                         <p>Paradise for nature lovers with waterfalls, hiking trails, and stunning hill views.</p>
                     </div>
                 </div>
-                <div class="destination-card">
+                <div class="destination-card" data-destination="jaffna">
                     <img src="Jaffna.jpeg" alt="Jaffna">
                     <div class="card-content">
                         <h3>Jaffna</h3>
                         <p>Rich Tamil culture, historic temples, unique cuisine, and coastal beauty.</p>
                     </div>
                 </div>
-                <div class="destination-card">
-                    <a href="kandy.html">
+                <div class="destination-card" data-destination="kandy">
                     <img src="Kandy.jpeg" alt="Kandy">
                     <div class="card-content">
                         <h3>Kandy</h3>
                         <p>Cultural capital with sacred temples, hill views, and a peaceful lake.</p>
                     </div>
-                    </a>
                 </div>
-                <div class="destination-card">
+                <div class="destination-card" data-destination="colombo">
                     <img src="Colombo.jpeg" alt="Colombo">
                     <div class="card-content">
                         <h3>Colombo</h3>
                         <p>Vibrant capital blending modern city life with history and seaside walks.</p>
                     </div>
                 </div>
-                <div class="destination-card">
+                <div class="destination-card" data-destination="matara">
                     <img src="Matara.jpeg" alt="Matara">
                     <div class="card-content">
                         <h3>Matara</h3>
                         <p>Calm southern town with beaches, heritage sites, and ocean breezes.</p>
                     </div>
                 </div>
-                <div class="destination-card">
+                <div class="destination-card" data-destination="trinco">
                     <img src="Trinco.jpeg" alt="Trincomalee">
                     <div class="card-content">
                         <h3>Trincomalee</h3>
                         <p>Pristine beaches, natural harbors, whale watching, and coastal serenity.</p>
                     </div>
                 </div>
-                <div class="destination-card">
+                <div class="destination-card" data-destination="sigiriya">
                     <img src="Sigiriya.jpeg" alt="Sigiriya">
                     <div class="card-content">
                         <h3>Sigiriya</h3>
                         <p>Iconic rock fortress with ancient ruins and breathtaking panoramic views.</p>
                     </div>
                 </div>
-
-
-
-
             </div>
 
             <button class="carousel-btn next-btn" id="nextBtn">
@@ -127,9 +115,32 @@
         </div>
     </section>
 
+    <!-- Destination Details Modal -->
+    <div class="destination-modal" id="destinationModal">
+        <div class="destination-modal-content">
+            <button class="destination-close-btn" id="destinationCloseBtn">&times;</button>
+            <img id="destinationModalImg" src="" alt="">
+            <div class="destination-modal-body">
+                <h2 id="destinationModalTitle"></h2>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="destinationModalLocation"></span>
+                </div>
+                <div class="description" id="destinationModalDescription"></div>
+                <div class="highlights">
+                    <h3>Highlights</h3>
+                    <ul id="destinationModalHighlights"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Packages -->
     <section id="packages">
         <h2>Tour Packages</h2>
+        <div class="packagebtndiv">
+        <button class="packagebtn">Packages</button>
+        </div>
         <div class="package-grid">
             <div class="package-card">
                 <h3>City Explorer</h3>
@@ -142,7 +153,6 @@
                     <li>Transport provided</li>
                 </ul>
                 <a href="login.html" class="btn" target="_blank">Book Now</a>
-
             </div>
             
             <div class="package-card">
@@ -171,7 +181,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Gallery -->
     <section id="gallery">
@@ -222,7 +231,7 @@
         </div>
     </section>
 
-    <!-- Modal -->
+    <!-- Gallery Modal -->
     <div class="modal" id="imageModal">
         <span class="modal-close" onclick="closeModal()">&times;</span>
         <img id="modalImage" src="" alt="Gallery Image">
