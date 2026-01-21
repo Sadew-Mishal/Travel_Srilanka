@@ -114,18 +114,21 @@
             <p style="text-align:center; font-size:1.2rem; color:var(--primary); font-weight:700;">Payable: Rs. <span id="modal-amount">0</span></p>
         </div>
         
-        <form action="upload.php" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="amount" id="form-amount">
-            <input type="text" placeholder="Your Name" required style="width:95%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc;">
-            <input type="text" placeholder="WhatsApp Number" required style="width:95%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc;">
-            <label style="display:block; margin-bottom:5px; font-weight:600;">Upload Payment Receipt:</label>
-            <input type="file" name="receipt" accept="image/*" required style="margin-bottom:15px;">
-            <button type="submit" class="btn" style="background:var(--primary); color:white; margin:0;">Confirm Booking</button>
-        </form>
+        <form onsubmit="confirmBooking(event)">
+    <input type="hidden" name="amount" id="form-amount">
+    <input type="text" placeholder="Your Name" required style="width:95%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc;">
+    <input type="text" placeholder="WhatsApp Number" required style="width:95%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc;">
+    <label style="display:block; margin-bottom:5px; font-weight:600;">Upload Payment Receipt:</label>
+    <input type="file" name="receipt" accept="image/*" required style="margin-bottom:15px;">
+    <button type="submit" class="btn" style="background:var(--primary); color:white; margin:0;">Confirm Booking</button>
+</form>
+
     </div>
 </div>
 
+
 <script>
+    
     let selectedCities = [];
     let vehicle = { name: "", price: 0 };
 
@@ -186,6 +189,13 @@
     function closeModal() {
         document.getElementById('bank-modal').style.display = 'none';
     }
+    function confirmBooking(e) {
+    e.preventDefault(); // prevent form submission
+    const amt = document.getElementById('grand-val').innerText;
+    alert("Successfully Completed! Total Amount: Rs. " + amt);
+    closeModal();
+}
+
 </script>
 
 </body>
