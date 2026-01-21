@@ -89,13 +89,30 @@ nav {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                url('homebg.jpg') center/cover;
+
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: var(--white);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    
+    animation:slideShow 25s infinite;
+    transition: background-image 1s ease-in-out;
+}
+@keyframes slideShow {
+    0% { background-image: url('colombo-1.jpg'); }
+    20% { background-image: url('ella-sri-lanka.jpg'); }
+    25% { background-image: url('Galle-1.jpg'); }
+    45% { background-image: url('Galle-2.jpg'); }
+    50% { background-image: url('Kandy-and-The-Temple.jpg'); }
+    70% { background-image: url('lighthouse-matara.webp'); }
+    75% { background-image: url('nuwara-eliya-ninearch.jpg'); }
+    95% { background-image: url('sigiriya-2.jpg'); }
+    100% { background-image: url('Winter-in-Nuwara-Eliya.jpg'); }
 }
 
 .hero-content h1 {
