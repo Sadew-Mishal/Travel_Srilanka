@@ -232,3 +232,33 @@ window.addEventListener("resize", () => {
                 destinationModal.classList.remove('active');
             }
         });
+ 
+
+        const btn = document.querySelector('.submit-btn');
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevents the page from reloading
+
+    btn.innerText = 'Sending...';
+
+    // These IDs must match your EmailJS Dashboard
+    const serviceID = 'service_kds7r3s';
+    const templateID = 'template_8z49qjp';
+
+    // This creates an object from your form inputs
+    const templateParams = {
+        from_name: document.getElementById('name').value,
+        reply_to: document.getElementById('email').value,
+        message: document.getElementById('message').value
+    };
+
+    emailjs.send(serviceID, templateID, templateParams)
+        .then(() => {
+            btn.innerText = 'Send Message';
+            alert('Message Sent Successfully!');
+            document.getElementById('contactForm').reset(); // Clears the form
+        }, (err) => {
+            btn.innerText = 'Send Message';
+            alert('Failed to send message. Error: ' + JSON.stringify(err));
+        });
+});
