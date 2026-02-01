@@ -111,7 +111,7 @@ nav {
     50% { background-image: url('Kandy-and-The-Temple.jpg'); }
     70% { background-image: url('lighthouse-matara.webp'); }
     75% { background-image: url('nuwara-eliya-ninearch.jpg'); }
-    95% { background-image: url('sigiriya-2.jpg'); }
+    95% { background-image: url(''); }
     100% { background-image: url('Winter-in-Nuwara-Eliya.jpg'); }
 }
 
@@ -159,14 +159,35 @@ nav {
 }
 /* head one newly added */
 
+
+
+
+
 .head-text {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  margin: 0;
+  padding: 5%;
 
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    align-items: center;
-
+  
 }
+
+
+
+.left-content{
+  transform: translateX(-600px);
+  animation: slideIn 5s ease forwards;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+  }
+}
+
+
 
 .left-content{
     flex: 1;
@@ -175,7 +196,10 @@ nav {
     justify-content: center;
     align-items: center;
     padding: 50px;
-   font-size: 60px; ;
+   font-size: 60px; 
+    line-height: normal;
+    text-align: center;
+  
 
 
 
@@ -184,7 +208,7 @@ nav {
 .left-content h1 {
     font size: 80px;
     font weight: bold;
-    
+   
 }
 .right-content {
     flex: 1;
@@ -192,8 +216,16 @@ nav {
 }
 
 .right-content h2 {
-    font-size: 28px;
+    font-size: 40px;
     margin-bottom: 10px;
+}
+
+
+h3{
+    font-size: 30px;
+    margin-bottom: auto;
+    text-align: center;
+
 }
 
 .right-content p {
@@ -203,7 +235,16 @@ nav {
     margin-bottom: 30px;
 }
 
+.right-content{
+  transform: translateX(+600px);
+  animation: slideIn 5s ease forwards;
+}
 
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+  }
+}
 
 
 
@@ -213,7 +254,17 @@ nav {
 /* Sections */
 section {
     padding: 80px 10%;
+   
+   
 }
+
+
+
+
+
+
+
+
 
 h2 {
     text-align: center;
@@ -238,6 +289,7 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background-color: #f4f4f4;
     padding: 50px 0;
+    
 }
 
 h2 { text-align: center; margin-bottom: 30px; }
@@ -449,60 +501,28 @@ h2 { text-align: center; margin-bottom: 30px; }
 
 .prev-btn { left: 10px; }
 .next-btn { right: 10px; }
+
+
+
+
+
+
 /* Packages */
 #packages {
-    background: var(--accent-color);
+    background-color: #0575f4;
+    width: 100vm;
+    height: 100vh;
+
+
+.btn{
+
+    background-color: #333;
+}
 }
 
-.package-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
 
-.package-card {
-    background: var(--white);
-    padding: 40px 30px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: all 0.3s;
-    border: 3px solid transparent;
-}
 
-.package-card:hover {
-    border-color: var(--primary-blue);
-    transform: scale(1.05);
-}
 
-.package-card h3 {
-    color: var(--primary-blue);
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.price {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--secondary-green);
-    margin: 20px 0;
-}
-
-.package-features {
-    list-style: none;
-    margin: 20px 0;
-}
-
-.package-features li {
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.package-features li:last-child {
-    border-bottom: none;
-}
 
 /* Gallery */
 .gallery-grid {
