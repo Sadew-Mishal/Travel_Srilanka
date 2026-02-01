@@ -46,7 +46,7 @@ prevBtn.addEventListener("click", () => {
     moveCarousel();
 });
 
-// 🔥 INSTANT LOOP FIX (no delay)
+// INSTANT LOOP FIX (no delay)
 track.addEventListener("transitionend", () => {
     track.style.transition = "none";
 
