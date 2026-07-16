@@ -106,13 +106,13 @@ nav {
 @keyframes slideShow {
     0% { background-image: url('../images/colombo-1.jpg'); }
     20% { background-image: url('../images/ella-sri-lanka.jpg'); }
-    25% { background-image: url('../images/Galle-1.jpg'); }
-    45% { background-image: url('../images/Galle-2.jpg'); }
-    50% { background-image: url('../images/Kandy-and-The-Temple.jpg'); }
+    25% { background-image: url('../images/galle-fort-01.jpg'); }
+    45% { background-image: url('../images/galle-fort-02.jpg'); }
+    50% { background-image: url('../images/kandy-temple-of-tooth.jpg'); }
     70% { background-image: url('../images/lighthouse-matara.webp'); }
     75% { background-image: url('../images/nuwara-eliya-ninearch.jpg'); }
     95% { background-image: url('../images/sigiriya-2.jpg'); }
-    100% { background-image: url('../images/Winter-in-Nuwara-Eliya.jpg'); }
+    100% { background-image: url('../images/nuwara-eliya-winter.jpg'); }
 }
 
 .hero-content h1 {
