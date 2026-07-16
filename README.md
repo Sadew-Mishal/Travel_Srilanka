@@ -47,6 +47,5 @@ Travel_Srilanka 1.0/
 - Email: `admin@gmail.com`
 - Password: `admin`
 
-Use the normal `login.html` page for both users and admins.
 
 
