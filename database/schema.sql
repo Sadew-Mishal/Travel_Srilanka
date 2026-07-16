@@ -18,9 +18,9 @@ CREATE TABLE IF NOT EXISTS admins (
 );
 
 INSERT INTO admins (name, email, password_hash)
-SELECT 'Site Admin', 'admin@travelsrilanka.local', '$2y$10$9AQU962SsuynRHNIz3IwxO.3ca8XpevLdLle1rB0IzBdtoxg7BU/q'
+SELECT 'Site Admin', 'admin@gmail.com', '$2y$10$ijiKPJ0faEGk9Rh45hMrYuVXw/1w8/aXxjx8y0myYAT6CJ3vHPX96'
 WHERE NOT EXISTS (
-    SELECT 1 FROM admins WHERE email = 'admin@travelsrilanka.local'
+    SELECT 1 FROM admins WHERE email = 'admin@gmail.com'
 );
 
 CREATE TABLE IF NOT EXISTS contact_messages (

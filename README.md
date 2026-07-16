@@ -31,7 +31,8 @@ Travel_Srilanka 1.0/
 
 - `index.html` - home page
 - `login.html` - login and sign-up page
-- `admin-login.php` - admin login page
+- `login.html` - normal users and admins can both log in here
+- `admin-login.php` - optional separate admin login page
 - `admin-dashboard.php` - admin dashboard for users, bookings, and messages
 - `booking.html` - tour booking page
 - `booking-copy.html` - second copy of the tour booking page
@@ -52,7 +53,9 @@ Travel_Srilanka 1.0/
 
 ## Demo admin login
 
-- Email: `admin@travelsrilanka.local`
-- Password: `admin123`
+- Email: `admin@gmail.com`
+- Password: `admin`
+
+The admin can log in from `login.html` or `admin-login.php`.
 
 Change this password before using the project outside a classroom/demo environment.
