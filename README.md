@@ -44,18 +44,11 @@ Travel_Srilanka 1.0/
 - `assets/js/main.js` - home page JavaScript
 - `assets/images/` - all image files
 
-## PHP and MySQL setup
-
-1. Start Apache and MySQL using XAMPP.
-2. Import `database/schema.sql` into MySQL or phpMyAdmin.
-3. Check the database username/password and port in `backend/db.php`.
-4. Open the site through `http://localhost/...`, not by double-clicking the HTML file.
 
 ## Demo admin login
 
 - Email: `admin@gmail.com`
 - Password: `admin`
 
-The admin can log in from `login.html` or `admin-login.php`.
 
-Change this password before using the project outside a classroom/demo environment.
+
