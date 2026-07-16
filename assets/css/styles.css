@@ -475,13 +475,18 @@ h2 { text-align: center; margin-bottom: 30px; }
     padding: 28px 24px;
     border-radius: 16px;
     text-align: center;
+    color: inherit;
+    display: block;
+    text-decoration: none;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     transition: all 0.3s;
     border: 3px solid transparent;
 }
 
-.plan-card:hover {
+.plan-card:hover,
+.plan-card:focus {
     border-color: var(--primary-blue);
+    outline: none;
     transform: translateY(-6px);
 }
 
@@ -625,6 +630,26 @@ h2 { text-align: center; margin-bottom: 30px; }
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
     line-height: 1.8;
+}
+
+.team-info {
+    margin-top: 30px;
+}
+
+.team-info ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+}
+
+.team-info li {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-weight: 600;
 }
 
 /* Contact */

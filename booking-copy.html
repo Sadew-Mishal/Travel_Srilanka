@@ -50,6 +50,8 @@
         .btn { width: 100%; padding: 16px; border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 20px; text-transform: uppercase; }
         .btn-calc { background: var(--accent); color: white; }
         .btn-checkout { background: var(--primary); color: white; display: none; }
+        #choose-destinations, #choose-transport, #add-guide, #calculate-budget { scroll-margin-top: 25px; }
+        #choose-destinations:target, #choose-transport:target, #add-guide:target, #calculate-budget:target { outline: 3px solid rgba(39,174,96,0.35); border-radius: 12px; }
 
         input[type="text"], input[type="number"], input[type="tel"] { width: 100%; padding: 12px; margin-bottom: 12px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box; }
         .card-row { display: flex; gap: 10px; }
@@ -63,7 +65,7 @@
 </header>
 
 <div class="container">
-    <h2>1. Choose your destinations</h2>
+    <h2 id="choose-destinations">1. Choose your destinations</h2>
     <div class="grid">
         <div class="item" onclick="toggleCity('Colombo', this)"><img src="assets/images/booking-colombo.jpg"><p>Colombo</p></div>
         <div class="item" onclick="toggleCity('Kandy', this)"><img src="assets/images/booking-kandy.jpg"><p>Kandy</p></div>
@@ -77,7 +79,7 @@
         <div class="item" onclick="toggleCity('Matara', this)"><img src="assets/images/booking-matale-matara.jpg"><p>Matara</p></div>
     </div>
 
-    <h2>2. Choose transport and travel days</h2>
+    <h2 id="choose-transport">2. Choose transport and travel days</h2>
     <div class="vehicle-select">
         <div class="v-card" id="v-bike" onclick="selectVehicle('Motorbike', 2500, 'v-bike')"><h3>🏍️</h3><p>Motorbike<br>Rs. 2500/day</p></div>
         <div class="v-card" id="v-car" onclick="selectVehicle('Car', 6000, 'v-car')"><h3>🚗</h3><p>Car <br>Rs. 6000/day</p></div>
@@ -89,12 +91,12 @@
         <input type="number" id="tour-days" value="1" min="1" onchange="resetView()">
     </div>
 
-    <div class="addon-box">
+    <div class="addon-box" id="add-guide">
         <span><strong>Add a Tour Guide?</strong> (+ Rs. 3500/day)</span>
         <input type="checkbox" id="guide-check" onchange="resetView()" style="width:24px; height:24px;">
     </div>
 
-    <button class="btn btn-calc" onclick="calculateTotal()">Calculate Final Price</button>
+    <button class="btn btn-calc" id="calculate-budget" onclick="calculateTotal()">Calculate Final Price</button>
 
     <div class="total-box" id="total-display">
         <div class="price-line"><span>Selected Cities:</span> <span id="disp-cities">None</span></div>
