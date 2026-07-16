@@ -127,18 +127,18 @@
                 <p><strong>Account Number:</strong> 123456789</p>
                 <p><strong>Branch:</strong> Kandy Main</p>
             </div>
-            <form onsubmit="confirmBooking(event, 'Bank Transfer')">
-                <input type="text" placeholder="Your Name" required>
-                <input type="tel" placeholder="WhatsApp Number" required>
+            <form action="backend/save_booking.php" method="POST" enctype="multipart/form-data" onsubmit="return confirmBooking(event, 'Bank Transfer')">
+                <input type="text" name="customer_name" placeholder="Your Name" required>
+                <input type="tel" name="whatsapp_number" placeholder="WhatsApp Number" required>
                 <label style="display:block; margin-bottom:5px; font-weight:600; font-size: 0.85rem;">Upload Payment Receipt:</label>
-                <input type="file" accept="image/*" required style="margin-bottom:15px;">
+                <input type="file" name="receipt_file" accept="image/*" required style="margin-bottom:15px;">
                 <button type="submit" class="btn" style="background:var(--primary); color:white; margin:0;">Submit Receipt</button>
             </form>
         </div>
 
         <div id="online-section" style="display:none;">
-            <form onsubmit="confirmBooking(event, 'Online Card')">
-                <input type="text" placeholder="Name on Card" required>
+            <form action="backend/save_booking.php" method="POST" onsubmit="return confirmBooking(event, 'Online Card')">
+                <input type="text" name="customer_name" placeholder="Name on Card" required>
                 <input type="text" placeholder="Card Number (XXXX XXXX XXXX XXXX)" maxlength="16" required>
                 <div class="card-row">
                     <input type="text" placeholder="MM/YY" maxlength="5" required>
@@ -234,12 +234,32 @@
         document.getElementById('payment-modal').style.display = 'none';
     }
 
+    function addHiddenInput(form, name, value) {
+        let input = form.querySelector(`input[name="${name}"]`);
+        if (!input) {
+            input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = name;
+            form.appendChild(input);
+        }
+        input.value = value;
+    }
+
     function confirmBooking(e, method) {
-        e.preventDefault();
         const amt = document.getElementById('grand-val').innerText;
-        alert(`Payment Successful via ${method}!\nTotal: Rs. ${amt}\nOur team will contact you on WhatsApp soon.`);
-        closeModal();
-        location.reload(); // Reload to clear the form
+        const days = document.getElementById('tour-days').value;
+        const guideAdded = document.getElementById('guide-check').checked ? '1' : '0';
+        const form = e.target;
+
+        addHiddenInput(form, 'selected_cities', selectedCities.join(', '));
+        addHiddenInput(form, 'vehicle_name', vehicle.name);
+        addHiddenInput(form, 'vehicle_price', vehicle.price);
+        addHiddenInput(form, 'travel_days', days);
+        addHiddenInput(form, 'guide_added', guideAdded);
+        addHiddenInput(form, 'total_amount', amt);
+        addHiddenInput(form, 'payment_method', method);
+
+        return true;
     }
 </script>
 
