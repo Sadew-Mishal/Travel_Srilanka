@@ -80,7 +80,7 @@ window.addEventListener("resize", () => {
             nuwara: {
                 title: "Nuwara Eliya",
                 location: "Central Province, Sri Lanka",
-                image: "Nuwaraeliya.jpeg",
+                image: "assets/images/Nuwaraeliya.jpeg",
                 description: "Nuwara Eliya, known as 'Little England,' is a charming hill station nestled in the heart of Sri Lanka's tea country. With its cool climate, colonial architecture, and lush green landscapes, it offers a refreshing escape from the tropical heat. The town is surrounded by rolling tea plantations, misty mountains, and cascading waterfalls.",
                 highlights: [
                     "Visit world-famous tea estates and factories",
@@ -93,7 +93,7 @@ window.addEventListener("resize", () => {
             galle: {
                 title: "Galle Fort",
                 location: "Southern Province, Sri Lanka",
-                image: "Galle.webp",
+                image: "assets/images/Galle.webp",
                 description: "Galle Fort is a UNESCO World Heritage Site that showcases the best of Dutch colonial architecture. Built in the 16th century by the Portuguese and later fortified by the Dutch, this historic fortress is a living city with boutique hotels, cafes, museums, and art galleries set within its ancient ramparts.",
                 highlights: [
                     "Walk along the historic fort walls",
@@ -106,7 +106,7 @@ window.addEventListener("resize", () => {
             ella: {
                 title: "Ella",
                 location: "Uva Province, Sri Lanka",
-                image: "Ella.jpeg",
+                image: "assets/images/Ella.jpeg",
                 description: "Ella is a small mountain village that has become one of Sri Lanka's most popular destinations. Known for its breathtaking natural beauty, Ella offers stunning views, hiking opportunities, and a laid-back atmosphere perfect for travelers seeking adventure and relaxation.",
                 highlights: [
                     "Hike to Little Adam's Peak and Ella Rock",
@@ -119,7 +119,7 @@ window.addEventListener("resize", () => {
             jaffna: {
                 title: "Jaffna",
                 location: "Northern Province, Sri Lanka",
-                image: "Jaffna.jpeg",
+                image: "assets/images/Jaffna.jpeg",
                 description: "Jaffna is the cultural capital of Sri Lanka's Tamil community, offering a unique blend of history, culture, and tradition. This northern city is known for its distinct cuisine, vibrant Hindu temples, and beautiful coastal scenery. Jaffna provides an authentic experience of Tamil culture and heritage.",
                 highlights: [
                     "Visit the historic Jaffna Fort",
@@ -132,7 +132,7 @@ window.addEventListener("resize", () => {
             kandy: {
                 title: "Kandy",
                 location: "Central Province, Sri Lanka",
-                image: "Kandy.jpeg",
+                image: "assets/images/Kandy.jpeg",
                 description: "Kandy, the last royal capital of Sri Lanka, is a sacred city that houses the Temple of the Sacred Tooth Relic. Surrounded by mountains and home to a beautiful lake, Kandy is the cultural heart of the island, hosting the famous Esala Perahera festival annually.",
                 highlights: [
                     "Visit the Temple of the Tooth (Sri Dalada Maligawa)",
@@ -145,7 +145,7 @@ window.addEventListener("resize", () => {
             colombo: {
                 title: "Colombo",
                 location: "Western Province, Sri Lanka",
-                image: "Colombo.jpeg",
+                image: "assets/images/Colombo.jpeg",
                 description: "Colombo is Sri Lanka's bustling commercial capital and largest city. It's a vibrant metropolis that seamlessly blends colonial heritage with modern development. From historic temples and churches to contemporary shopping malls and restaurants, Colombo offers diverse experiences for every traveler.",
                 highlights: [
                     "Visit Gangaramaya Temple and Beira Lake",
@@ -158,7 +158,7 @@ window.addEventListener("resize", () => {
             matara: {
                 title: "Matara",
                 location: "Southern Province, Sri Lanka",
-                image: "Matara.jpeg",
+                image: "assets/images/Matara.jpeg",
                 description: "Matara is a charming coastal town in the southern part of Sri Lanka. Known for its beautiful beaches, historic sites, and relaxed atmosphere, Matara offers a perfect blend of culture and seaside leisure. The town features colonial-era architecture and ancient Buddhist temples.",
                 highlights: [
                     "Visit the historic Matara Fort",
@@ -171,7 +171,7 @@ window.addEventListener("resize", () => {
             trinco: {
                 title: "Trincomalee",
                 location: "Eastern Province, Sri Lanka",
-                image: "Trinco.jpeg",
+                image: "assets/images/Trinco.jpeg",
                 description: "Trincomalee, or Trinco, is blessed with one of the finest natural harbors in the world. This eastern coastal city offers pristine beaches, crystal-clear waters, and incredible marine life. It's a paradise for beach lovers, divers, and those seeking whale watching adventures.",
                 highlights: [
                     "Visit the ancient Koneswaram Temple",
@@ -184,7 +184,7 @@ window.addEventListener("resize", () => {
             sigiriya: {
                 title: "Sigiriya",
                 location: "Central Province, Sri Lanka",
-                image: "Sigiriya.jpeg",
+                image: "assets/images/Sigiriya.jpeg",
                 description: "Sigiriya, also known as Lion Rock, is an ancient rock fortress and one of Sri Lanka's most iconic landmarks. This UNESCO World Heritage Site rises 200 meters above the surrounding plains and features spectacular frescoes, water gardens, and the remains of an ancient palace. It's a testament to the ingenuity of ancient Sri Lankan civilization.",
                 highlights: [
                     "Climb the ancient rock fortress",
@@ -232,6 +232,26 @@ window.addEventListener("resize", () => {
                 destinationModal.classList.remove('active');
             }
         });
+
+function openModal(galleryItem) {
+    const image = galleryItem.querySelector('img');
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+
+    modalImage.src = image.src;
+    modalImage.alt = image.alt;
+    modal.classList.add('active');
+}
+
+function closeModal() {
+    document.getElementById('imageModal').classList.remove('active');
+}
+
+document.getElementById('imageModal').addEventListener('click', (event) => {
+    if (event.target.id === 'imageModal') {
+        closeModal();
+    }
+});
  
 
         const btn = document.querySelector('.submit-btn');
