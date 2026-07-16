@@ -12,6 +12,8 @@ In this project:
 - `backend/login.php` checks user email and password.
 - `backend/contact.php` saves contact form messages.
 - `backend/save_booking.php` saves trip bookings.
+- `backend/admin_login.php` checks admin login.
+- `admin-dashboard.php` shows users, bookings, and contact messages to the admin.
 - `backend/db.php` connects PHP to MySQL.
 - `database/schema.sql` creates the database tables.
 
@@ -225,3 +227,46 @@ exit;
 - Do not store real card details in a student project.
 
 This backend is basic and good for learning. For a real travel company website, payment processing and admin security would need much stronger protection.
+
+## Admin Dashboard
+
+The admin dashboard is separate from normal users.
+
+Admin login page:
+
+```text
+admin-login.php
+```
+
+Admin dashboard page:
+
+```text
+admin-dashboard.php
+```
+
+The dashboard starts with this check:
+
+```php
+if (!isset($_SESSION['admin_id'])) {
+    header('Location: admin-login.php');
+    exit;
+}
+```
+
+Meaning: if the admin is not logged in, PHP redirects them back to the admin login page.
+
+The dashboard reads data from MySQL:
+
+```php
+$users = $pdo->query('SELECT id, name, email, created_at FROM users')->fetchAll();
+```
+
+It then prints the results in HTML tables.
+
+When displaying database values, it uses:
+
+```php
+htmlspecialchars()
+```
+
+This helps prevent XSS attacks when showing user-submitted data.

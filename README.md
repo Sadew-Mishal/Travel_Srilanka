@@ -8,6 +8,8 @@ First-year first-semester web project for a Sri Lanka travel website.
 Travel_Srilanka 1.0/
 |-- index.html
 |-- login.html
+|-- admin-login.php
+|-- admin-dashboard.php
 |-- booking.html
 |-- booking-copy.html
 |-- backend/
@@ -29,6 +31,8 @@ Travel_Srilanka 1.0/
 
 - `index.html` - home page
 - `login.html` - login and sign-up page
+- `admin-login.php` - admin login page
+- `admin-dashboard.php` - admin dashboard for users, bookings, and messages
 - `booking.html` - tour booking page
 - `booking-copy.html` - second copy of the tour booking page
 - `backend/` - PHP files for register, login, contact, and booking
@@ -43,5 +47,12 @@ Travel_Srilanka 1.0/
 
 1. Start Apache and MySQL using XAMPP.
 2. Import `database/schema.sql` into MySQL or phpMyAdmin.
-3. Check the database username/password in `backend/db.php`.
+3. Check the database username/password and port in `backend/db.php`.
 4. Open the site through `http://localhost/...`, not by double-clicking the HTML file.
+
+## Demo admin login
+
+- Email: `admin@travelsrilanka.local`
+- Password: `admin123`
+
+Change this password before using the project outside a classroom/demo environment.

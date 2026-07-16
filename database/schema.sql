@@ -9,6 +9,20 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS admins (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO admins (name, email, password_hash)
+SELECT 'Site Admin', 'admin@travelsrilanka.local', '$2y$10$9AQU962SsuynRHNIz3IwxO.3ca8XpevLdLle1rB0IzBdtoxg7BU/q'
+WHERE NOT EXISTS (
+    SELECT 1 FROM admins WHERE email = 'admin@travelsrilanka.local'
+);
+
 CREATE TABLE IF NOT EXISTS contact_messages (
     id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,

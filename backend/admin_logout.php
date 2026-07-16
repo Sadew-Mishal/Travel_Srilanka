@@ -1,0 +1,7 @@
+<?php
+require_once 'db.php';
+
+unset($_SESSION['admin_id'], $_SESSION['admin_name'], $_SESSION['admin_email']);
+
+header('Location: ../admin-login.php?logout=success');
+exit;
