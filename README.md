@@ -23,7 +23,6 @@ Travel_Srilanka 1.0/
 |   `-- images/
 |       |-- gallery/
 |       `-- other website images
-|-- PHP_EXPLANATION.md
 `-- README.md
 ```
 
@@ -38,7 +37,6 @@ Travel_Srilanka 1.0/
 - `backend/` - PHP files for register, login, contact, and booking
 - `database/schema.sql` - MySQL database and table setup
 - `uploads/receipts/` - uploaded bank transfer receipts
-- `PHP_EXPLANATION.md` - beginner PHP explanation for this project
 - `assets/css/styles.css` - home page styles
 - `assets/js/main.js` - home page JavaScript
 - `assets/images/` - all image files
@@ -49,4 +47,3 @@ Travel_Srilanka 1.0/
 - Email: `admin@gmail.com`
 - Password: `admin`
 
-Use the normal `login.html` page for both users and admins.
