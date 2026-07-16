@@ -2,7 +2,7 @@
 require_once 'backend/db.php';
 
 if (!isset($_SESSION['admin_id'])) {
-    header('Location: admin-login.php');
+    header('Location: login.html');
     exit;
 }
 

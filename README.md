@@ -8,7 +8,6 @@ First-year first-semester web project for a Sri Lanka travel website.
 Travel_Srilanka 1.0/
 |-- index.html
 |-- login.html
-|-- admin-login.php
 |-- admin-dashboard.php
 |-- booking.html
 |-- booking-copy.html
@@ -30,9 +29,7 @@ Travel_Srilanka 1.0/
 ## Main files
 
 - `index.html` - home page
-- `login.html` - login and sign-up page
 - `login.html` - normal users and admins can both log in here
-- `admin-login.php` - optional separate admin login page
 - `admin-dashboard.php` - admin dashboard for users, bookings, and messages
 - `booking.html` - tour booking page
 - `booking-copy.html` - second copy of the tour booking page
@@ -50,5 +47,6 @@ Travel_Srilanka 1.0/
 - Email: `admin@gmail.com`
 - Password: `admin`
 
+Use the normal `login.html` page for both users and admins.
 
 
